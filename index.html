@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Spec-Driven Development</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            color: #1e293b;
+            background-color: #f8fafc;
+        }
+        .font-mono {
+            font-family: 'JetBrains Mono', monospace;
+        }
+        .prose-text {
+            line-height: 1.75;
+            color: #334155;
+        }
+        /* Blueprint grid pattern for background */
+        .bg-grid {
+            background-image: linear-gradient(#e2e8f0 1px, transparent 1px),
+            linear-gradient(90deg, #e2e8f0 1px, transparent 1px);
+            background-size: 40px 40px;
+        }
+    </style>
+</head>
+<body class="antialiased">
+
+    <!-- Hero Section -->
+    <header class="bg-slate-900 text-slate-50 py-24 px-6 relative overflow-hidden">
+        <div class="absolute inset-0 opacity-10 bg-grid"></div>
+        <div class="max-w-4xl mx-auto relative z-10">
+            <div class="inline-block px-3 py-1 mb-6 border border-slate-600 rounded-full text-xs font-mono text-slate-400 tracking-wide uppercase">
+                Methodology
+            </div>
+            <h1 class="text-4xl md:text-6xl font-bold tracking-tight mb-6">
+                Spec-Driven Development
+            </h1>
+            <p class="text-xl md:text-2xl text-slate-300 font-light leading-relaxed max-w-3xl">
+                Transforming ad-hoc coding into a structured, iterative workflow where the 
+                <span class="font-mono text-cyan-400">specification</span> is the core artifact.
+            </p>
+        </div>
+    </header>
+
+    <!-- Introduction -->
+    <section class="max-w-4xl mx-auto px-6 pt-16 pb-8">
+        <h2 class="text-2xl font-bold mb-6 text-slate-900">Introduction</h2>
+        <div class="prose-text text-lg space-y-6">
+            <p>
+                Spec-Driven Development (SDD) is a methodology that prioritizes the creation of precise, machine-readable specifications over immediate coding. As AI commoditizes code generation, the engineering bottleneck has shifted from <em>writing syntax</em> to <em>defining intent</em>. SDD addresses this by treating the specification as the primary source of truth from which code, tests, and documentation are derived.
+            </p>
+            <p>
+                Its value lies in eliminating the "ambiguity tax"—the costly cycles of hallucination and rework caused by vague requirements. By front-loading clarity, SDD empowers developers to orchestrate complex systems with confidence, ensuring that the raw speed of AI is matched by the reliability of engineering rigor.
+            </p>
+        </div>
+    </section>
+
+    <!-- Core Philosophy -->
+    <section class="max-w-4xl mx-auto px-6 pb-16 pt-8">
+        <h2 class="text-2xl font-bold mb-6 text-slate-900">The Core Philosophy</h2>
+        <p class="prose-text text-lg mb-8">
+            Spec-Driven Development (SDD) acts as a bridge between human intent and AI execution. It integrates the strongest elements from established approaches—foundational guardrails, explicit clarification, and atomic task decomposition—to create a predictable process. 
+        </p>
+        <p class="prose-text text-lg">
+            By shifting the developer's role from "coder" to "architect and reviewer," SDD minimizes rework and leverages AI for the heavy lifting while maintaining strict human orchestration.
+        </p>
+    </section>
+
+    <!-- The 6 Phases -->
+    <section class="bg-white border-y border-slate-200 py-16 px-6">
+        <div class="max-w-5xl mx-auto">
+            <h2 class="text-3xl font-bold mb-2">The Workflow</h2>
+            <p class="text-slate-500 mb-12">From constitution to maintenance: a six-phase cycle.</p>
+
+            <div class="space-y-8">
+                
+                <!-- Phase 0 -->
+                <div class="flex flex-col md:flex-row gap-6 border-l-4 border-slate-900 pl-6 md:pl-0 md:border-l-0 md:relative">
+                    <div class="hidden md:flex flex-col items-center w-16 flex-shrink-0">
+                        <div class="w-8 h-8 rounded-full bg-slate-900 text-white flex items-center justify-center font-mono font-bold text-sm">0</div>
+                        <div class="h-full w-px bg-slate-200 my-2"></div>
+                    </div>
+                    <div class="flex-1 bg-slate-50 p-6 rounded-lg border border-slate-200">
+                        <div class="flex flex-col sm:flex-row sm:justify-between sm:items-center mb-4">
+                            <h3 class="text-xl font-bold text-slate-800">Constitution <span class="text-slate-400 font-normal text-sm ml-2">(Setup Guardrails)</span></h3>
+                            <span class="text-xs font-mono bg-slate-200 text-slate-700 px-2 py-1 rounded mt-2 sm:mt-0">constitution.md</span>
+                        </div>
+                        <p class="text-slate-600 mb-4">Establish persistent project principles (tech stack, coding standards, security rules) that serve as the immutable context for all AI operations.</p>
+                        <div class="bg-blue-50 text-blue-800 text-sm p-3 rounded border border-blue-100 flex items-start gap-2">
+                            <span class="font-bold">Checkpoint:</span>
+                            Initial team alignment on rules.
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Phase 1 -->
+                <div class="flex flex-col md:flex-row gap-6 border-l-4 border-cyan-500 pl-6 md:pl-0 md:border-l-0 md:relative">
+                    <div class="hidden md:flex flex-col items-center w-16 flex-shrink-0">
+                        <div class="w-8 h-8 rounded-full bg-cyan-500 text-white flex items-center justify-center font-mono font-bold text-sm">1</div>
+                        <div class="h-full w-px bg-slate-200 my-2"></div>
+                    </div>
+                    <div class="flex-1 bg-white p-6 rounded-lg border border-slate-200 shadow-sm">
+                        <div class="flex flex-col sm:flex-row sm:justify-between sm:items-center mb-4">
+                            <h3 class="text-xl font-bold text-slate-800">Specify <span class="text-slate-400 font-normal text-sm ml-2">(Define What & Why)</span></h3>
+                            <span class="text-xs font-mono bg-slate-100 text-slate-600 px-2 py-1 rounded mt-2 sm:mt-0">specification.md</span>
+                        </div>
+                        <p class="text-slate-600 mb-4">Capture unambiguous requirements including user stories, acceptance criteria, and constraints. Focus on intent, not technical implementation details.</p>
+                        <div class="bg-blue-50 text-blue-800 text-sm p-3 rounded border border-blue-100 flex items-start gap-2">
+                            <span class="font-bold">Checkpoint:</span>
+                            Product/Stakeholder review for clarity and completeness.
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Phase 2 -->
+                <div class="flex flex-col md:flex-row gap-6 border-l-4 border-cyan-500 pl-6 md:pl-0 md:border-l-0 md:relative">
+                    <div class="hidden md:flex flex-col items-center w-16 flex-shrink-0">
+                        <div class="w-8 h-8 rounded-full bg-cyan-500 text-white flex items-center justify-center font-mono font-bold text-sm">2</div>
+                        <div class="h-full w-px bg-slate-200 my-2"></div>
+                    </div>
+                    <div class="flex-1 bg-white p-6 rounded-lg border border-slate-200 shadow-sm">
+                        <h3 class="text-xl font-bold text-slate-800 mb-2">Clarify <span class="text-slate-400 font-normal text-sm ml-2">(Remove Ambiguity)</span></h3>
+                        <p class="text-slate-600 mb-4">Run a structured pass to surface underspecified areas—edge cases, empty states, and error handling—recording answers in the spec before moving forward.</p>
+                        <div class="bg-blue-50 text-blue-800 text-sm p-3 rounded border border-blue-100 flex items-start gap-2">
+                            <span class="font-bold">Checkpoint:</span>
+                            Developer verification to minimize downstream rework.
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Phase 3 -->
+                <div class="flex flex-col md:flex-row gap-6 border-l-4 border-cyan-500 pl-6 md:pl-0 md:border-l-0 md:relative">
+                    <div class="hidden md:flex flex-col items-center w-16 flex-shrink-0">
+                        <div class="w-8 h-8 rounded-full bg-cyan-500 text-white flex items-center justify-center font-mono font-bold text-sm">3</div>
+                        <div class="h-full w-px bg-slate-200 my-2"></div>
+                    </div>
+                    <div class="flex-1 bg-white p-6 rounded-lg border border-slate-200 shadow-sm">
+                        <div class="flex flex-col sm:flex-row sm:justify-between sm:items-center mb-4">
+                            <h3 class="text-xl font-bold text-slate-800">Plan <span class="text-slate-400 font-normal text-sm ml-2">(Technical Blueprint)</span></h3>
+                            <span class="text-xs font-mono bg-slate-100 text-slate-600 px-2 py-1 rounded mt-2 sm:mt-0">plan.md</span>
+                        </div>
+                        <p class="text-slate-600 mb-4">Translate intent into a feasible technical approach: architecture decisions, data models, API contracts, and dependencies.</p>
+                        <div class="bg-blue-50 text-blue-800 text-sm p-3 rounded border border-blue-100 flex items-start gap-2">
+                            <span class="font-bold">Checkpoint:</span>
+                            Architectural review for soundness and risk avoidance.
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Phase 4 -->
+                <div class="flex flex-col md:flex-row gap-6 border-l-4 border-cyan-500 pl-6 md:pl-0 md:border-l-0 md:relative">
+                    <div class="hidden md:flex flex-col items-center w-16 flex-shrink-0">
+                        <div class="w-8 h-8 rounded-full bg-cyan-500 text-white flex items-center justify-center font-mono font-bold text-sm">4</div>
+                        <div class="h-full w-px bg-slate-200 my-2"></div>
+                    </div>
+                    <div class="flex-1 bg-white p-6 rounded-lg border border-slate-200 shadow-sm">
+                        <div class="flex flex-col sm:flex-row sm:justify-between sm:items-center mb-4">
+                            <h3 class="text-xl font-bold text-slate-800">Tasks <span class="text-slate-400 font-normal text-sm ml-2">(Atomic Decomposition)</span></h3>
+                            <span class="text-xs font-mono bg-slate-100 text-slate-600 px-2 py-1 rounded mt-2 sm:mt-0">tasks.md</span>
+                        </div>
+                        <p class="text-slate-600 mb-4">Break work into small, testable, isolated chunks scoped for single PRs (1-4 hours each). Order by dependencies.</p>
+                        <div class="bg-blue-50 text-blue-800 text-sm p-3 rounded border border-blue-100 flex items-start gap-2">
+                            <span class="font-bold">Checkpoint:</span>
+                            Scope/order review for logical flow.
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Phase 5 & 6 -->
+                <div class="flex flex-col md:flex-row gap-6 border-l-4 border-indigo-500 pl-6 md:pl-0 md:border-l-0 md:relative">
+                    <div class="hidden md:flex flex-col items-center w-16 flex-shrink-0">
+                        <div class="w-8 h-8 rounded-full bg-indigo-500 text-white flex items-center justify-center font-mono font-bold text-sm">5-6</div>
+                        <div class="h-full w-px bg-transparent my-2"></div>
+                    </div>
+                    <div class="flex-1 bg-indigo-50 p-6 rounded-lg border border-indigo-100">
+                        <h3 class="text-xl font-bold text-indigo-900 mb-2">Implement & Iterate</h3>
+                        <p class="text-indigo-800 mb-4">AI generates code and tests from the spec/plan slices. Humans validate against the spec. Post-merge, any changes start by revising the spec first.</p>
+                        <ul class="list-disc list-inside text-sm text-indigo-700 space-y-1">
+                            <li>Tests are embedded in specs from the start.</li>
+                            <li>Commit only when validated by AI and Human.</li>
+                            <li>Treat specs as version-controlled code.</li>
+                        </ul>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Key Tenets -->
+    <section class="max-w-6xl mx-auto px-6 py-16">
+        <h2 class="text-2xl font-bold mb-10 text-slate-900 border-b border-slate-200 pb-4">Key Tenets</h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            
+            <div class="bg-white p-6 rounded-lg border border-slate-200 shadow-sm hover:border-cyan-300 transition-colors">
+                <h3 class="font-bold text-slate-800 mb-2 text-sm uppercase tracking-wide text-cyan-700">Specification as Truth</h3>
+                <p class="text-slate-600 text-sm leading-relaxed">
+                    Begin with a comprehensive specification that captures the "what" and "why" from the user's perspective. Treat it as a living contract and executable blueprint that AI agents use to generate and validate code, ensuring intent and implementation stay synchronized.
+                </p>
+            </div>
+
+            <div class="bg-white p-6 rounded-lg border border-slate-200 shadow-sm hover:border-cyan-300 transition-colors">
+                <h3 class="font-bold text-slate-800 mb-2 text-sm uppercase tracking-wide text-cyan-700">Upfront Clarity & Rigor</h3>
+                <p class="text-slate-600 text-sm leading-relaxed">
+                    Provide unambiguous details in the spec, covering business rules, edge cases, non-functional requirements, and architectural planning. This outlines the technology stack and integration points upfront to align with existing systems.
+                </p>
+            </div>
+
+            <div class="bg-white p-6 rounded-lg border border-slate-200 shadow-sm hover:border-cyan-300 transition-colors">
+                <h3 class="font-bold text-slate-800 mb-2 text-sm uppercase tracking-wide text-cyan-700">Persistent Context</h3>
+                <p class="text-slate-600 text-sm leading-relaxed">
+                    Maintain the specification as a single, evolving source of truth across development sessions to ensure consistency. It serves as the persistent communication tool between stakeholders, designers, and developers.
+                </p>
+            </div>
+
+            <div class="bg-white p-6 rounded-lg border border-slate-200 shadow-sm hover:border-cyan-300 transition-colors">
+                <h3 class="font-bold text-slate-800 mb-2 text-sm uppercase tracking-wide text-cyan-700">Test-Driven Guardrails</h3>
+                <p class="text-slate-600 text-sm leading-relaxed">
+                    Derive automated tests and clear acceptance criteria directly from the specification. This validates outputs continuously, catching issues early in a manner inspired by TDD, BDD, and Design by Contract.
+                </p>
+            </div>
+
+            <div class="bg-white p-6 rounded-lg border border-slate-200 shadow-sm hover:border-cyan-300 transition-colors">
+                <h3 class="font-bold text-slate-800 mb-2 text-sm uppercase tracking-wide text-cyan-700">System Integration</h3>
+                <p class="text-slate-600 text-sm leading-relaxed">
+                    Explicitly define integration points, architectural patterns, and constraints in the spec. This ensures seamless alignment with current infrastructure, avoiding conflicts and promoting secure, efficient development.
+                </p>
+            </div>
+
+            <div class="bg-white p-6 rounded-lg border border-slate-200 shadow-sm hover:border-cyan-300 transition-colors">
+                <h3 class="font-bold text-slate-800 mb-2 text-sm uppercase tracking-wide text-cyan-700">Living Specifications</h3>
+                <p class="text-slate-600 text-sm leading-relaxed">
+                    Treat specs as dynamic artifacts that update iteratively with new insights and feedback—both pre- and post-implementation. This minimizes misunderstandings, reduces rework, and supports ongoing maintenance.
+                </p>
+            </div>
+
+            <div class="bg-white p-6 rounded-lg border border-slate-200 shadow-sm hover:border-cyan-300 transition-colors">
+                <h3 class="font-bold text-slate-800 mb-2 text-sm uppercase tracking-wide text-cyan-700">Structured Organization</h3>
+                <p class="text-slate-600 text-sm leading-relaxed">
+                    Employ dedicated structures, constitutions, or guiding principles to enforce consistency. This provides persistent rules for AI-generated artifacts and facilitates clearer collaboration.
+                </p>
+            </div>
+
+            <div class="bg-white p-6 rounded-lg border border-slate-200 shadow-sm hover:border-cyan-300 transition-colors">
+                <h3 class="font-bold text-slate-800 mb-2 text-sm uppercase tracking-wide text-cyan-700">Systematic Decomposition</h3>
+                <p class="text-slate-600 text-sm leading-relaxed">
+                    Break complex features into small, atomic, testable tasks with tight scoping. This enables predictable AI code generation and continuous validation against the spec's criteria.
+                </p>
+            </div>
+
+            <div class="bg-white p-6 rounded-lg border border-slate-200 shadow-sm hover:border-cyan-300 transition-colors">
+                <h3 class="font-bold text-slate-800 mb-2 text-sm uppercase tracking-wide text-cyan-700">Human Orchestration</h3>
+                <p class="text-slate-600 text-sm leading-relaxed">
+                    Shift the developer's role from coding to orchestration and review. Incorporate checkpoints to critique specs, plans, and AI outputs for correctness, security, and alignment with intent.
+                </p>
+            </div>
+
+            <div class="bg-white p-6 rounded-lg border border-slate-200 shadow-sm hover:border-cyan-300 transition-colors">
+                <h3 class="font-bold text-slate-800 mb-2 text-sm uppercase tracking-wide text-cyan-700">Explicitness</h3>
+                <p class="text-slate-600 text-sm leading-relaxed">
+                    Emphasize high specificity in specs to drive secure, efficient workflows. Decisions made early guide the process, balancing against anti-patterns like skipping planning.
+                </p>
+            </div>
+
+            <div class="bg-white p-6 rounded-lg border border-slate-200 shadow-sm hover:border-cyan-300 transition-colors">
+                <h3 class="font-bold text-slate-800 mb-2 text-sm uppercase tracking-wide text-cyan-700">Executable Intent</h3>
+                <p class="text-slate-600 text-sm leading-relaxed">
+                    Design specifications to be inherently executable by AI tools. This enables direct code generation and validation, evolving traditional development roles in AI-assisted environments.
+                </p>
+            </div>
+
+            <div class="bg-white p-6 rounded-lg border border-slate-200 shadow-sm hover:border-cyan-300 transition-colors">
+                <h3 class="font-bold text-slate-800 mb-2 text-sm uppercase tracking-wide text-cyan-700">Iterative Refinement</h3>
+                <p class="text-slate-600 text-sm leading-relaxed">
+                    Incorporate feedback loops for spec evolution before implementation begins. Drawing from related methodologies helps catch ambiguities early and promotes a flexible yet rigorous pre-code phase.
+                </p>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Comparison Section -->
+    <section class="bg-slate-50 border-y border-slate-200 py-16 px-6">
+        <div class="max-w-6xl mx-auto">
+            <h2 class="text-2xl font-bold mb-8 text-center">Comparison: SDD vs. Vibe Coding</h2>
+            <div class="overflow-x-auto rounded-lg border border-slate-200 shadow-sm">
+                <table class="w-full text-sm text-left bg-white">
+                    <thead class="text-xs text-slate-500 uppercase bg-slate-100 border-b border-slate-200">
+                        <tr>
+                            <th class="px-6 py-4 font-bold">Aspect</th>
+                            <th class="px-6 py-4 font-bold w-1/3">Vibe Coding</th>
+                            <th class="px-6 py-4 font-bold w-1/3 text-indigo-700 bg-indigo-50/50">Spec-Driven Development</th>
+                        </tr>
+                    </thead>
+                    <tbody class="divide-y divide-slate-100">
+                        <tr class="hover:bg-slate-50">
+                            <td class="px-6 py-4 font-semibold text-slate-900">Definition</td>
+                            <td class="px-6 py-4 text-slate-600">Exploratory, natural language prompts based on "vibes" or high-level ideas.</td>
+                            <td class="px-6 py-4 text-slate-800 bg-indigo-50/20">Structured methodology with detailed, executable specifications as the source of truth.</td>
+                        </tr>
+                        <tr class="hover:bg-slate-50">
+                            <td class="px-6 py-4 font-semibold text-slate-900">Process</td>
+                            <td class="px-6 py-4 text-slate-600">Ad-hoc prompting; quick iterations; relies on AI intuition.</td>
+                            <td class="px-6 py-4 text-slate-800 bg-indigo-50/20">Phased workflow (Specify -> Clarify -> Plan -> Tasks) with upfront rigor.</td>
+                        </tr>
+                        <tr class="hover:bg-slate-50">
+                            <td class="px-6 py-4 font-semibold text-slate-900">Strengths</td>
+                            <td class="px-6 py-4 text-slate-600">Fast for prototypes; low barrier to entry; creative.</td>
+                            <td class="px-6 py-4 text-slate-800 bg-indigo-50/20">Reliable for complex projects; reduces ambiguity; ensures alignment with intent.</td>
+                        </tr>
+                        <tr class="hover:bg-slate-50">
+                            <td class="px-6 py-4 font-semibold text-slate-900">Weaknesses</td>
+                            <td class="px-6 py-4 text-slate-600">Prone to hallucinations, context loss, and brittle code.</td>
+                            <td class="px-6 py-4 text-slate-800 bg-indigo-50/20">More upfront time required; can feel rigid for small hacks.</td>
+                        </tr>
+                        <tr class="hover:bg-slate-50">
+                            <td class="px-6 py-4 font-semibold text-slate-900">AI Role</td>
+                            <td class="px-6 py-4 text-slate-600">Primary generator; handles most work with loose guidance.</td>
+                            <td class="px-6 py-4 text-slate-800 bg-indigo-50/20">Executor of well-defined tasks; Human orchestrates, AI generates.</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </section>
+
+    <!-- Tools / Under the Hood -->
+    <section class="max-w-4xl mx-auto px-6 py-16">
+        <h2 class="text-2xl font-bold mb-8">How the Tools Work</h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+            <div>
+                <h3 class="text-lg font-bold text-slate-800 mb-3 flex items-center">
+                    <span class="bg-slate-900 text-white w-6 h-6 rounded-full flex items-center justify-center text-xs mr-2">1</span>
+                    Initialization
+                </h3>
+                <p class="prose-text text-sm mb-6">
+                    SDD tools operate by transforming user intents into machine-readable specs. They scan existing repositories for interfaces and patterns, then reference the <span class="font-mono text-slate-600 bg-slate-100 px-1 rounded">constitution.md</span> to generate user stories and acceptance criteria. This upfront analysis minimizes ambiguity before a single line of code is written.
+                </p>
+            </div>
+            <div>
+                <h3 class="text-lg font-bold text-slate-800 mb-3 flex items-center">
+                    <span class="bg-slate-900 text-white w-6 h-6 rounded-full flex items-center justify-center text-xs mr-2">2</span>
+                    Execution
+                </h3>
+                <p class="prose-text text-sm mb-6">
+                    Once specs are solid, the tools use AI to produce code, tests, and documentation derived directly from the artifacts. The specs act as living metadata—updating a spec triggers regeneration of affected code. This enables automated consistency checks and contract testing, abstracting away the pitfalls of ad-hoc generation.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- The Agentic Enterprise -->
+    <section class="bg-slate-900 text-slate-300 py-16 px-6 relative overflow-hidden border-t border-slate-800">
+         <div class="absolute inset-0 opacity-20 bg-grid"></div>
+         <div class="max-w-4xl mx-auto relative z-10">
+            <h2 class="text-2xl font-bold text-white mb-6 tracking-tight">The Agentic Enterprise</h2>
+            
+            <div class="prose-text text-lg text-slate-400 space-y-6">
+                <p>
+                    Spec-Driven Development is not an isolated methodology; it is a foundational element of a larger vision known as the <strong>Agentic Enterprise</strong>. This paradigm reimagines the organization as a hybrid network where human ingenuity pairs with infinite machine scale. The ecosystem relies on three pillars locking into place: <strong class="text-white">Spec-Driven Development</strong> provides the structured language of intent, while the <strong class="text-white">Agentic Dev Fleet</strong> serves as the swarm of specialized AI builders that execute that intent. Together, they produce <strong class="text-white">JITware</strong>—applications that are not statically maintained over years, but dynamically rendered and evolved the moment they are needed.
+                </p>
+
+                <p>
+                    Enterprises achieve this state through <strong class="text-white">Offloading</strong>, a strategic transformation program designed to migrate I.T. and business units to the Agentic model. By systematically identifying routine cognitive labor and transferring it to the Agentic Dev Fleet, Offloading moves the organization away from manual execution. This allows human teams to ascend from the trenches of coding to the heights of high-level orchestration, strategy, and creative direction.
+                </p>
+            </div>
+         </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-slate-950 text-slate-500 py-12 px-6 text-center border-t border-slate-900">
+        <div class="max-w-2xl mx-auto">
+            <p class="text-xs font-mono uppercase tracking-widest">
+                Structured for the AI Era
+            </p>
+        </div>
+    </footer>
+
+</body>
+</html>
